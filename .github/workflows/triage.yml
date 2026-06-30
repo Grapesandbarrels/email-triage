@@ -1,0 +1,32 @@
+name: Email Triage
+
+on:
+  schedule:
+    - cron: "0 5,8,11,14,17,20 * * *"
+  workflow_dispatch:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python instellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependencies installeren
+        run: pip install requests anthropic
+
+      - name: Email triage uitvoeren
+        env:
+          TENANT_ID:         ${{ secrets.TENANT_ID }}
+          CLIENT_ID:         ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET:     ${{ secrets.CLIENT_SECRET }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          USER_EMAIL:        ${{ secrets.USER_EMAIL }}
+        run: python email_triage.py
