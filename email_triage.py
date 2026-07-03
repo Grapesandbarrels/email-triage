@@ -320,7 +320,6 @@ def main():
             if dest_id:
                 try:
                     new_id = move_email(token, email["id"], dest_id)
-                    mark_as_read(token, new_id)
                     print(f" [snel] -> {quick_folder}: {subject[:60]}")
                     quick += 1
                     moved += 1
@@ -338,8 +337,6 @@ def main():
             if dest_id:
                 try:
                     new_message_id = move_email(token, email["id"], dest_id)
-                    if target == "Ruis":
-                        mark_as_read(token, new_message_id)
                     print(f" -> {target}: {subject[:60]}")
                     moved += 1
                 except Exception as e:
