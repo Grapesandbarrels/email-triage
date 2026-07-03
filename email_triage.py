@@ -24,10 +24,55 @@ FOLDERS = {
     "Klanten & Bestellingen": "Klanten & Bestellingen",
     "Logistiek": "Logistiek",
     "Finance": "Finance",
-    "Nieuwsbrieven": "Nieuwsbrieven",
-    "Software & Tools": "Software & Tools",
+    "Ruis": "Ruis",
     "Postvak IN": "Postvak IN",
 }
+
+# Snelle filter op afzenderdomein â geen Claude-aanroep nodig
+RUIS_DOMAINS = [
+    "facebookmail.com", "facebook.com",
+    "shopify.com", "mail.shopify.com",
+    "syncwith.com",
+    "google.com", "merchants.google.com", "googlemerchant",
+    "mailchimp.com", "mc.us", "list-manage.com",
+    "intuit.com", "intuitemailservice.com",
+    "linkedin.com", "twitter.com", "instagram.com",
+    "klaviyo.com", "sendgrid.net", "mailgun.org",
+    "constantcontact.com", "campaignmonitor.com",
+    "hubspot.com", "salesforce.com", "marketo.com",
+    "noreply", "no-reply", "donotreply", "do-not-reply",
+    "notifications@", "newsletter@", "marketing@",
+    "mailer@", "info@shopify", "postmaster",
+]
+
+RUIS_SUBJECTS = [
+    "scheduled report", "your weekly", "your monthly", "your daily",
+    "unsubscribe", "newsletter", "nieuwsbrief",
+    "don't miss", "limited time", "special offer",
+    "korting", "aanbieding", "sale", "% off",
+    "new features", "product update", "release notes",
+    "you have", "meldingen", "notifications",
+    "marketing", "advertentie",
+]
+
+
+def quick_classify(sender: str, subject: str) -> str | None:
+    """Classificeer direct op basis van afzender/onderwerp, zonder Claude.
+    Returns folder name or None als Claude nodig is.
+    """
+    s = sender.lower()
+    sub = subject.lower()
+
+    for pattern in RUIS_DOMAINS:
+        if pattern in s:
+            return "Ruis"
+
+    for kw in RUIS_SUBJECTS:
+        if kw in sub:
+            return "Ruis"
+
+    return None
+
 
 TRIAGE_PROMPT = """Je bent email-assistent voor Floris van Grapes & Barrels, een Nederlandse wijnimporteur.
 
@@ -38,9 +83,12 @@ Mappen:
 - Klanten & Bestellingen: orders, klantenvragen, webshop-orders, leveringsverzoeken
 - Logistiek: verzending, douane, transport, DHL, PostNL
 - Finance: facturen, betalingen, Mollie, banken, creditnota's
-- Nieuwsbrieven: nieuwsbrieven, marketing, aanbiedingen, automated updates
-- Software & Tools: Google, Shopify, software meldingen, app-notificaties
-- Postvak IN: al het andere
+- Ruis: ALLES wat niet direct actie vereist â nieuwsbrieven, marketing, aanbiedingen,
+  automatische meldingen, social media, software-updates, rapporten, ontvangstbevestigingen,
+  notificaties van tools, Google/Facebook/Shopify meldingen, bulk email
+- Postvak IN: alleen echte persoonlijke berichten die nergens anders passen
+
+Bij twijfel: liever Ruis dan Postvak IN.
 
 Een conceptreply is ALLEEN nodig bij:
 - Echte vragen of verzoeken van klanten of producenten die antwoord verwachten
@@ -48,7 +96,7 @@ Een conceptreply is ALLEEN nodig bij:
 - Logistieke problemen die actie vereisen
 - Financiele verzoeken of disputen
 
-GEEN reply bij: nieuwsbrieven, automatische systeemmeldingen, spam, marketing, ontvangstbevestigingen.
+GEEN reply bij: alles in Ruis, automatische meldingen, marketing.
 
 Schrijf de conceptreply in dezelfde taal als de afzender (Nederlands als afzender Nederlands schrijft, etc.).
 De reply moet professioneel, vriendelijk en beknopt zijn. Begin NIET met "Beste [naam]" als je de naam niet weet - gebruik dan "Beste," of "Goedemiddag,".
@@ -117,6 +165,23 @@ def get_folder_ids(token):
     return folder_map
 
 
+def ensure_folder_exists(token, folder_map, folder_name):
+    """Maakt een map aan als die nog niet bestaat."""
+    if folder_name in folder_map:
+        return folder_map[folder_name]
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    url = f"{GRAPH_BASE}/users/{USER_EMAIL}/mailFolders"
+    r = requests.post(url, headers=headers, json={"displayName": folder_name}, timeout=30)
+    if r.status_code == 409:
+        # Al bestaat - haal ID op
+        return folder_map.get(folder_name)
+    r.raise_for_status()
+    new_id = r.json()["id"]
+    folder_map[folder_name] = new_id
+    print(f"Map aangemaakt: {folder_name}")
+    return new_id
+
+
 def get_inbox_emails(token, folder_id, max_emails=30):
     headers = {"Authorization": f"Bearer {token}"}
     url = (
@@ -174,6 +239,13 @@ def move_email(token, message_id, dest_folder_id):
     return r.json().get("id", message_id)
 
 
+def mark_as_read(token, message_id):
+    """Markeer email als gelezen (voor Ruis-mails)."""
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}"
+    requests.patch(url, headers=headers, json={"isRead": True}, timeout=30)
+
+
 def create_reply_draft(token, message_id, draft_body):
     """Maakt een conceptreply aan in Outlook Concepten."""
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
@@ -208,6 +280,11 @@ def main():
     folder_map = get_folder_ids(token)
     print(f"{len(folder_map)} mappen gevonden")
 
+    # Zorg dat alle benodigde mappen bestaan
+    for folder_name in FOLDERS:
+        if folder_name not in ("Postvak IN",):
+            ensure_folder_exists(token, folder_map, folder_name)
+
     inbox_id = folder_map.get("Postvak IN")
     if not inbox_id:
         print("Postvak IN niet gevonden")
@@ -219,7 +296,7 @@ def main():
         return
 
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
-    moved = skipped = drafted = 0
+    moved = skipped = drafted = quick = 0
 
     for email in emails:
         subject = email.get("subject", "(geen onderwerp)")
@@ -233,19 +310,36 @@ def main():
         else:
             body_text = body_content
 
-        # Fallback naar preview als body leeg is
         if not body_text.strip():
             body_text = email.get("bodyPreview", "")
 
+        # Probeer snelle classificatie zonder Claude
+        quick_folder = quick_classify(sender, subject)
+        if quick_folder:
+            dest_id = folder_map.get(quick_folder)
+            if dest_id:
+                try:
+                    new_id = move_email(token, email["id"], dest_id)
+                    mark_as_read(token, new_id)
+                    print(f" [snel] -> {quick_folder}: {subject[:60]}")
+                    quick += 1
+                    moved += 1
+                except Exception as e:
+                    print(f" Fout snel filter '{subject[:40]}': {e}")
+                    skipped += 1
+            continue  # Geen Claude nodig
+
+        # Claude voor onduidelijke gevallen
         target, needs_reply, draft_reply = analyze_email(client, sender, subject, body_text)
 
-        # Verplaats naar juiste map
         new_message_id = email["id"]
         if target != "Postvak IN":
             dest_id = folder_map.get(target)
             if dest_id:
                 try:
                     new_message_id = move_email(token, email["id"], dest_id)
+                    if target == "Ruis":
+                        mark_as_read(token, new_message_id)
                     print(f" -> {target}: {subject[:60]}")
                     moved += 1
                 except Exception as e:
@@ -257,7 +351,6 @@ def main():
         else:
             skipped += 1
 
-        # Maak conceptreply aan indien nodig
         if needs_reply and draft_reply:
             try:
                 create_reply_draft(token, new_message_id, draft_reply)
@@ -266,7 +359,7 @@ def main():
             except Exception as e:
                 print(f"   Fout concept reply '{subject[:40]}': {e}")
 
-    print(f"\nKlaar: {moved} verplaatst, {drafted} concept replies aangemaakt, {skipped} overgeslagen")
+    print(f"\nKlaar: {moved} verplaatst ({quick} snel), {drafted} concept replies, {skipped} overgeslagen")
 
 
 if __name__ == "__main__":
