@@ -1,6 +1,6 @@
 """
 Email Triage Script - Grapes & Barrels
-Leest ongelezen mails, verplaatst naar juiste map,
+Leest mails (gelezen en ongelezen), verplaatst naar juiste map,
 en maakt conceptreplies aan voor mails die een reactie vereisen.
 """
 
@@ -55,24 +55,16 @@ RUIS_SUBJECTS = [
     "marketing", "advertentie",
 ]
 
-
 def quick_classify(sender: str, subject: str) -> str | None:
-    """Classificeer direct op basis van afzender/onderwerp, zonder Claude.
-    Returns folder name or None als Claude nodig is.
-    """
     s = sender.lower()
     sub = subject.lower()
-
     for pattern in RUIS_DOMAINS:
         if pattern in s:
             return "Ruis"
-
     for kw in RUIS_SUBJECTS:
         if kw in sub:
             return "Ruis"
-
     return None
-
 
 TRIAGE_PROMPT = """Je bent email-assistent voor Floris van Grapes & Barrels, een Nederlandse wijnimporteur.
 
@@ -114,7 +106,6 @@ Onderwerp: {subject}
 Inhoud:
 {body}"""
 
-
 class HTMLStripper(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -126,7 +117,6 @@ class HTMLStripper(HTMLParser):
     def get_text(self):
         return " ".join(self.result)
 
-
 def strip_html(html):
     s = HTMLStripper()
     try:
@@ -136,7 +126,6 @@ def strip_html(html):
     text = s.get_text()
     text = re.sub(r'\s+', ' ', text).strip()
     return text
-
 
 def get_access_token():
     url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
@@ -149,7 +138,6 @@ def get_access_token():
     r = requests.post(url, data=data, timeout=30)
     r.raise_for_status()
     return r.json()["access_token"]
-
 
 def get_folder_ids(token):
     headers = {"Authorization": f"Bearer {token}"}
@@ -164,16 +152,13 @@ def get_folder_ids(token):
         url = data.get("@odata.nextLink")
     return folder_map
 
-
 def ensure_folder_exists(token, folder_map, folder_name):
-    """Maakt een map aan als die nog niet bestaat."""
     if folder_name in folder_map:
         return folder_map[folder_name]
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     url = f"{GRAPH_BASE}/users/{USER_EMAIL}/mailFolders"
     r = requests.post(url, headers=headers, json={"displayName": folder_name}, timeout=30)
     if r.status_code == 409:
-        # Al bestaat - haal ID op
         return folder_map.get(folder_name)
     r.raise_for_status()
     new_id = r.json()["id"]
@@ -181,24 +166,18 @@ def ensure_folder_exists(token, folder_map, folder_name):
     print(f"Map aangemaakt: {folder_name}")
     return new_id
 
-
 def get_inbox_emails(token, folder_id, max_emails=30):
     headers = {"Authorization": f"Bearer {token}"}
     url = (
         f"{GRAPH_BASE}/users/{USER_EMAIL}/mailFolders/{folder_id}/messages"
-        f"?$filter=isRead eq false"
-        f"&$select=id,subject,from,bodyPreview,body"
+        f"?$select=id,subject,from,bodyPreview,body"
         f"&$top={max_emails}&$orderby=receivedDateTime desc"
     )
     r = requests.get(url, headers=headers, timeout=30)
     r.raise_for_status()
     return r.json().get("value", [])
 
-
 def analyze_email(client, sender, subject, body_text):
-    """Classificeer email en bepaal of een conceptreply nodig is.
-    Returns: (folder, needs_reply, draft_reply)
-    """
     prompt = TRIAGE_PROMPT.format(
         sender=sender,
         subject=subject,
@@ -210,11 +189,8 @@ def analyze_email(client, sender, subject, body_text):
         messages=[{"role": "user", "content": prompt}],
     )
     raw = msg.content[0].text.strip()
-
-    # Verwijder eventuele markdown code-blocks
     raw = re.sub(r'^```(?:json)?\s*', '', raw)
-    raw = re.sub(r'\s*```$', '', raw)
-
+    raw = re.sub(r'\s*```\s*$', '', raw)
     try:
         data = json.loads(raw)
         folder = data.get("folder", "Postvak IN")
@@ -230,7 +206,6 @@ def analyze_email(client, sender, subject, body_text):
         folder = raw if raw in FOLDERS else "Postvak IN"
         return folder, False, None
 
-
 def move_email(token, message_id, dest_folder_id):
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}/move"
@@ -238,25 +213,17 @@ def move_email(token, message_id, dest_folder_id):
     r.raise_for_status()
     return r.json().get("id", message_id)
 
-
 def mark_as_read(token, message_id):
-    """Markeer email als gelezen (voor Ruis-mails)."""
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}"
     requests.patch(url, headers=headers, json={"isRead": True}, timeout=30)
 
-
 def create_reply_draft(token, message_id, draft_body):
-    """Maakt een conceptreply aan in Outlook Concepten."""
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-
-    # Stap 1: Maak lege reply-draft (kopieert To/Subject automatisch)
     url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}/createReply"
     r = requests.post(url, headers=headers, json={}, timeout=30)
     r.raise_for_status()
     draft_id = r.json()["id"]
-
-    # Stap 2: Vul de body in met Claude's tekst
     body_html = draft_body.replace("\n", "<br>\n")
     patch_url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{draft_id}"
     r2 = requests.patch(
@@ -273,14 +240,12 @@ def create_reply_draft(token, message_id, draft_body):
     r2.raise_for_status()
     return draft_id
 
-
 def main():
     print("Grapes & Barrels - Email Triage gestart")
     token = get_access_token()
     folder_map = get_folder_ids(token)
     print(f"{len(folder_map)} mappen gevonden")
 
-    # Zorg dat alle benodigde mappen bestaan
     for folder_name in FOLDERS:
         if folder_name not in ("Postvak IN",):
             ensure_folder_exists(token, folder_map, folder_name)
@@ -291,7 +256,7 @@ def main():
         return
 
     emails = get_inbox_emails(token, inbox_id)
-    print(f"{len(emails)} ongelezen emails")
+    print(f"{len(emails)} emails in inbox")
     if not emails:
         return
 
@@ -313,7 +278,6 @@ def main():
         if not body_text.strip():
             body_text = email.get("bodyPreview", "")
 
-        # Probeer snelle classificatie zonder Claude
         quick_folder = quick_classify(sender, subject)
         if quick_folder:
             dest_id = folder_map.get(quick_folder)
@@ -326,9 +290,8 @@ def main():
                 except Exception as e:
                     print(f" Fout snel filter '{subject[:40]}': {e}")
                     skipped += 1
-            continue  # Geen Claude nodig
+            continue
 
-        # Claude voor onduidelijke gevallen
         target, needs_reply, draft_reply = analyze_email(client, sender, subject, body_text)
 
         new_message_id = email["id"]
@@ -357,7 +320,6 @@ def main():
                 print(f"   Fout concept reply '{subject[:40]}': {e}")
 
     print(f"\nKlaar: {moved} verplaatst ({quick} snel), {drafted} concept replies, {skipped} overgeslagen")
-
 
 if __name__ == "__main__":
     main()
