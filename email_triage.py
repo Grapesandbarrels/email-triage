@@ -170,7 +170,7 @@ def get_inbox_emails(token, folder_id, max_emails=30):
     headers = {"Authorization": f"Bearer {token}"}
     url = (
         f"{GRAPH_BASE}/users/{USER_EMAIL}/mailFolders/{folder_id}/messages"
-        f"?$select=id,subject,from,bodyPreview,body"
+        f"?$select=id,subject,from,bodyPreview,body,isRead"
         f"&$top={max_emails}&$orderby=receivedDateTime desc"
     )
     r = requests.get(url, headers=headers, timeout=30)
@@ -311,7 +311,7 @@ def main():
         else:
             skipped += 1
 
-        if needs_reply and draft_reply:
+        if needs_reply and draft_reply and not email.get("isRead", True):
             try:
                 create_reply_draft(token, new_message_id, draft_reply)
                 print(f"   [concept reply] {subject[:50]}")
