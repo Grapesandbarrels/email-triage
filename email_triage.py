@@ -1,7 +1,14 @@
 """
 Email Triage Script - Grapes & Barrels
-Leest mails (gelezen en ongelezen), verplaatst naar juiste map,
-en maakt conceptreplies aan voor mails die een reactie vereisen.
+Leest mails (gelezen en ongelezen), verplaatst naar juiste map.
+Maakt GEEN automatische conceptreplies meer - flagt alleen welke mails
+een antwoord nodig lijken te hebben.
+
+Wordt geleidelijk beter: elke run wordt bijgehouden in triage_history.json.
+Als Floris een mail zelf naar een andere map verplaatst dan de bot koos,
+wordt dat als correctie opgeslagen en gebruikt om (a) toekomstige mails van
+diezelfde afzender direct goed te zetten (zonder Claude-aanroep) en (b) de
+Claude-prompt te verrijken met een paar recente correctievoorbeelden.
 """
 
 import os
@@ -9,6 +16,7 @@ import re
 import json
 import requests
 import anthropic
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 
 TENANT_ID = os.environ["TENANT_ID"]
@@ -19,52 +27,227 @@ USER_EMAIL = os.environ.get("USER_EMAIL", "floris@grapesandbarrels.nl")
 
 GRAPH_BASE = "https://graph.microsoft.com/v1.0"
 
+HISTORY_FILE = "triage_history.json"
+MAX_HISTORY = 800
+CORRECTION_CHECK_DELAY_HOURS = 6   # geef Floris tijd om zelf te corrigeren voor we "afronden"
+MAX_CORRECTION_CHECKS_PER_RUN = 40
+LEARNED_MIN_SAMPLES = 3
+LEARNED_MIN_RATIO = 0.75
+
 FOLDERS = {
     "Producenten": "Producenten",
     "Klanten & Bestellingen": "Klanten & Bestellingen",
     "Logistiek": "Logistiek",
     "Finance": "Finance",
+    "Marketing & Tools": "Marketing & Tools",
+    "Evenementen & Netwerk": "Evenementen & Netwerk",
+    "Juridisch": "Juridisch",
     "Ruis": "Ruis",
     "Postvak IN": "Postvak IN",
 }
 
-# Snelle filter op afzenderdomein â geen Claude-aanroep nodig
-RUIS_DOMAINS = [
-    "facebookmail.com", "facebook.com",
-    "shopify.com", "mail.shopify.com",
-    "syncwith.com",
-    "google.com", "merchants.google.com", "googlemerchant",
-    "mailchimp.com", "mc.us", "list-manage.com",
-    "intuit.com", "intuitemailservice.com",
-    "linkedin.com", "twitter.com", "instagram.com",
-    "klaviyo.com", "sendgrid.net", "mailgun.org",
-    "constantcontact.com", "campaignmonitor.com",
-    "hubspot.com", "salesforce.com", "marketo.com",
+# ---------------------------------------------------------------------------
+# Snelle filters -- geen Claude-aanroep nodig
+# ---------------------------------------------------------------------------
+
+# Afzenderdomein (substring match) -> vaste map. Dit zijn bekende automatische
+# afzenders die business-relevant zijn maar geen persoonlijke actie vereisen.
+QUICK_DOMAIN_MAP = {
+    "shopify.com": "Marketing & Tools",
+    "mail.shopify.com": "Marketing & Tools",
+    "syncwith.com": "Marketing & Tools",
+    "merchants.google.com": "Marketing & Tools",
+    "googlemerchant": "Marketing & Tools",
+    "mailchimp.com": "Marketing & Tools",
+    "list-manage.com": "Marketing & Tools",
+    "klaviyo.com": "Marketing & Tools",
+    "sendgrid.net": "Marketing & Tools",
+    "mailgun.org": "Marketing & Tools",
+    "constantcontact.com": "Marketing & Tools",
+    "campaignmonitor.com": "Marketing & Tools",
+    "hubspot.com": "Marketing & Tools",
+    "salesforce.com": "Marketing & Tools",
+    "marketo.com": "Marketing & Tools",
+    "facebookmail.com": "Marketing & Tools",
+    "facebook.com": "Marketing & Tools",
+    "twitter.com": "Marketing & Tools",
+    "instagram.com": "Marketing & Tools",
+    "linkedin.com": "Evenementen & Netwerk",
+    "intuit.com": "Finance",
+    "intuitemailservice.com": "Finance",
+}
+
+# Afzender local-part patronen die vrijwel altijd pure ruis zijn (mits domein
+# hierboven niet al iets specifieks toekende)
+RUIS_SENDER_PATTERNS = [
     "noreply", "no-reply", "donotreply", "do-not-reply",
-    "notifications@", "newsletter@", "marketing@",
-    "mailer@", "info@shopify", "postmaster",
+    "notifications@", "postmaster", "mailer@",
 ]
 
-RUIS_SUBJECTS = [
-    "scheduled report", "your weekly", "your monthly", "your daily",
-    "unsubscribe", "newsletter", "nieuwsbrief",
-    "don't miss", "limited time", "special offer",
-    "korting", "aanbieding", "sale", "% off",
+MARKETING_SUBJECT_KEYWORDS = [
+    "nieuwsbrief", "newsletter", "korting", "aanbieding", "% off",
+    "special offer", "limited time", "don't miss",
     "new features", "product update", "release notes",
-    "you have", "meldingen", "notifications",
-    "marketing", "advertentie",
 ]
+
+RUIS_SUBJECT_KEYWORDS = [
+    "scheduled report", "your weekly", "your monthly", "your daily",
+    "unsubscribe", "you have", "meldingen", "notifications",
+]
+
 
 def quick_classify(sender: str, subject: str) -> str | None:
     s = sender.lower()
     sub = subject.lower()
-    for pattern in RUIS_DOMAINS:
+
+    for domain, folder in QUICK_DOMAIN_MAP.items():
+        if domain in s:
+            return folder
+    for pattern in RUIS_SENDER_PATTERNS:
         if pattern in s:
             return "Ruis"
-    for kw in RUIS_SUBJECTS:
+    for kw in MARKETING_SUBJECT_KEYWORDS:
+        if kw in sub:
+            return "Marketing & Tools"
+    for kw in RUIS_SUBJECT_KEYWORDS:
         if kw in sub:
             return "Ruis"
     return None
+
+
+# ---------------------------------------------------------------------------
+# Leerdata (triage_history.json) -- maakt classificatie beter over tijd
+# ---------------------------------------------------------------------------
+
+def load_history() -> dict:
+    if not os.path.exists(HISTORY_FILE):
+        return {"records": []}
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            data.setdefault("records", [])
+            return data
+    except (json.JSONDecodeError, OSError):
+        return {"records": []}
+
+
+def save_history(history: dict) -> None:
+    history["records"] = history["records"][-MAX_HISTORY:]
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+
+
+def domain_of(sender: str) -> str:
+    return sender.split("@")[-1].lower() if "@" in sender else sender.lower()
+
+
+def record_classification(history: dict, message_id: str, sender: str, subject: str,
+                           folder: str, source: str) -> None:
+    history["records"].append({
+        "id": message_id,
+        "sender_domain": domain_of(sender),
+        "subject": subject[:150],
+        "folder": folder,
+        "source": source,  # "quick" | "learned" | "llm" | "correction"
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "checked": source == "correction",
+    })
+
+
+def build_domain_stats(records: list) -> dict:
+    """sender_domain -> {folder: gewogen score}. Correcties tellen zwaarder."""
+    stats: dict = {}
+    for r in records:
+        d, f = r.get("sender_domain"), r.get("folder")
+        if not d or not f:
+            continue
+        weight = 3 if r.get("source") == "correction" else 1
+        stats.setdefault(d, {})
+        stats[d][f] = stats[d].get(f, 0) + weight
+    return stats
+
+
+def learned_classify(domain_stats: dict, sender: str) -> str | None:
+    counts = domain_stats.get(domain_of(sender))
+    if not counts:
+        return None
+    total = sum(counts.values())
+    best_folder, best_score = max(counts.items(), key=lambda kv: kv[1])
+    if total >= LEARNED_MIN_SAMPLES and (best_score / total) >= LEARNED_MIN_RATIO:
+        return best_folder
+    return None
+
+
+def build_learned_examples_text(records: list, limit: int = 8) -> str:
+    corrections = [r for r in records if r.get("source") == "correction"][-limit:]
+    if not corrections:
+        return ""
+    lines = [
+        "Geleerde voorbeelden uit eerdere correcties door Floris "
+        "(hij heeft deze zelf verplaatst -- dit is leidend voor vergelijkbare mails):"
+    ]
+    for c in corrections:
+        lines.append(f"- afzenderdomein \"{c['sender_domain']}\", onderwerp \"{c['subject']}\" -> {c['folder']}")
+    return "\n".join(lines)
+
+
+def get_message_folder_id(token: str, message_id: str) -> str | None:
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}?$select=parentFolderId"
+    r = requests.get(url, headers=headers, timeout=30)
+    if r.status_code == 404:
+        return None
+    r.raise_for_status()
+    return r.json().get("parentFolderId")
+
+
+def check_for_corrections(token: str, history: dict, folder_map: dict) -> int:
+    """Kijkt of eerder verplaatste mails inmiddels ergens anders staan (= Floris
+    heeft de bot gecorrigeerd) en slaat dat op als leervoorbeeld."""
+    id_to_name = {v: k for k, v in folder_map.items()}
+    now = datetime.now(timezone.utc)
+    checks_done = 0
+    corrections_found = 0
+    new_records = []
+
+    for r in history["records"]:
+        if r.get("checked") or checks_done >= MAX_CORRECTION_CHECKS_PER_RUN:
+            continue
+        try:
+            record_time = datetime.fromisoformat(r["ts"])
+        except Exception:
+            r["checked"] = True
+            continue
+        if (now - record_time).total_seconds() < CORRECTION_CHECK_DELAY_HOURS * 3600:
+            continue
+
+        checks_done += 1
+        r["checked"] = True
+        current_folder_id = get_message_folder_id(token, r["id"])
+        if current_folder_id is None:
+            continue
+        current_folder_name = id_to_name.get(current_folder_id)
+        if current_folder_name and current_folder_name != r["folder"]:
+            corrections_found += 1
+            new_records.append({
+                "id": f"{r['id']}-correction-{int(now.timestamp())}",
+                "sender_domain": r["sender_domain"],
+                "subject": r["subject"],
+                "folder": current_folder_name,
+                "source": "correction",
+                "ts": now.isoformat(),
+                "checked": True,
+            })
+
+    history["records"].extend(new_records)
+    if corrections_found:
+        print(f"{corrections_found} correctie(s) gevonden -> toegevoegd aan leerdata")
+    return corrections_found
+
+
+# ---------------------------------------------------------------------------
+# Claude classificatie
+# ---------------------------------------------------------------------------
 
 TRIAGE_PROMPT = """Je bent email-assistent voor Floris van Grapes & Barrels, een Nederlandse wijnimporteur.
 
@@ -75,36 +258,37 @@ Mappen:
 - Klanten & Bestellingen: orders, klantenvragen, webshop-orders, leveringsverzoeken
 - Logistiek: verzending, douane, transport, DHL, PostNL
 - Finance: facturen, betalingen, Mollie, banken, creditnota's
-- Ruis: ALLES wat niet direct actie vereist â nieuwsbrieven, marketing, aanbiedingen,
-  automatische meldingen, social media, software-updates, rapporten, ontvangstbevestigingen,
-  notificaties van tools, Google/Facebook/Shopify meldingen, bulk email
-- Postvak IN: alleen echte persoonlijke berichten die nergens anders passen
+- Marketing & Tools: nieuwsbrieven, aanbiedingen, en automatische meldingen van
+  software/tools die Floris gebruikt (Shopify, Google, social media, mailinglijsten) --
+  niet urgent, maar wel relevant genoeg om af en toe te scannen
+- Evenementen & Netwerk: wijnbeurzen, proeverijen, uitnodigingen, netwerkcontacten,
+  LinkedIn-berichten van mensen (geen automatische meldingen)
+- Juridisch: contracten, voorwaarden, verzekeringen, juridische correspondentie
+- Ruis: pure spam, phishing, volstrekt irrelevante automatische mail zonder enige
+  business-waarde
+- Postvak IN: alleen echte persoonlijke berichten die nergens anders bij passen
 
-Bij twijfel: liever Ruis dan Postvak IN.
+Bij twijfel tussen een specifieke map en Ruis: kies de specifieke map, niet Ruis.
+Bij twijfel tussen Postvak IN en Ruis: kies Postvak IN.
+Gebruik Ruis alleen als je vrij zeker bent dat het geen enkele waarde heeft.
 
-Een conceptreply is ALLEEN nodig bij:
-- Echte vragen of verzoeken van klanten of producenten die antwoord verwachten
-- Bestellingen die een bevestiging nodig hebben
-- Logistieke problemen die actie vereisen
-- Financiele verzoeken of disputen
-
-GEEN reply bij: alles in Ruis, automatische meldingen, marketing.
-
-Schrijf de conceptreply in dezelfde taal als de afzender (Nederlands als afzender Nederlands schrijft, etc.).
-De reply moet professioneel, vriendelijk en beknopt zijn. Begin NIET met "Beste [naam]" als je de naam niet weet - gebruik dan "Beste," of "Goedemiddag,".
-Onderteken altijd met: "Met vriendelijke groet,\nFloris\nGrapes & Barrels"
+{learned_examples}
 
 Geef ALLEEN valide JSON terug (geen markdown, geen uitleg):
 {{
   "folder": "<een van de mapnamen hierboven>",
-  "needs_reply": true of false,
-  "draft_reply": "<conceptreply als tekst, of null>"
+  "needs_reply": true of false
 }}
+
+"needs_reply" is true als dit een echte vraag/verzoek/bestelling/dispuut is dat een
+persoonlijk antwoord van Floris verwacht. Er wordt GEEN automatische conceptreply meer
+aangemaakt -- dit veld is puur om te signaleren welke mails Floris zelf moet oppakken.
 
 Van: {sender}
 Onderwerp: {subject}
 Inhoud:
 {body}"""
+
 
 class HTMLStripper(HTMLParser):
     def __init__(self):
@@ -117,6 +301,7 @@ class HTMLStripper(HTMLParser):
     def get_text(self):
         return " ".join(self.result)
 
+
 def strip_html(html):
     s = HTMLStripper()
     try:
@@ -126,6 +311,7 @@ def strip_html(html):
     text = s.get_text()
     text = re.sub(r'\s+', ' ', text).strip()
     return text
+
 
 def get_access_token():
     url = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
@@ -139,6 +325,7 @@ def get_access_token():
     r.raise_for_status()
     return r.json()["access_token"]
 
+
 def get_folder_ids(token):
     headers = {"Authorization": f"Bearer {token}"}
     url = f"{GRAPH_BASE}/users/{USER_EMAIL}/mailFolders?$top=50"
@@ -151,6 +338,7 @@ def get_folder_ids(token):
             folder_map[f["displayName"]] = f["id"]
         url = data.get("@odata.nextLink")
     return folder_map
+
 
 def ensure_folder_exists(token, folder_map, folder_name):
     if folder_name in folder_map:
@@ -166,6 +354,7 @@ def ensure_folder_exists(token, folder_map, folder_name):
     print(f"Map aangemaakt: {folder_name}")
     return new_id
 
+
 def get_inbox_emails(token, folder_id, max_emails=30):
     headers = {"Authorization": f"Bearer {token}"}
     url = (
@@ -177,15 +366,17 @@ def get_inbox_emails(token, folder_id, max_emails=30):
     r.raise_for_status()
     return r.json().get("value", [])
 
-def analyze_email(client, sender, subject, body_text):
+
+def analyze_email(client, sender, subject, body_text, learned_examples_text):
     prompt = TRIAGE_PROMPT.format(
         sender=sender,
         subject=subject,
         body=body_text[:2000],
+        learned_examples=learned_examples_text,
     )
     msg = client.messages.create(
         model="claude-haiku-4-5-20251001",
-        max_tokens=600,
+        max_tokens=200,
         messages=[{"role": "user", "content": prompt}],
     )
     raw = msg.content[0].text.strip()
@@ -197,14 +388,12 @@ def analyze_email(client, sender, subject, body_text):
         if folder not in FOLDERS:
             folder = "Postvak IN"
         needs_reply = bool(data.get("needs_reply", False))
-        draft_reply = data.get("draft_reply") or None
-        if draft_reply == "null":
-            draft_reply = None
-        return folder, needs_reply, draft_reply
+        return folder, needs_reply
     except json.JSONDecodeError:
         print(f"   JSON parse fout. Raw: {raw[:100]}")
         folder = raw if raw in FOLDERS else "Postvak IN"
-        return folder, False, None
+        return folder, False
+
 
 def move_email(token, message_id, dest_folder_id):
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
@@ -213,32 +402,6 @@ def move_email(token, message_id, dest_folder_id):
     r.raise_for_status()
     return r.json().get("id", message_id)
 
-def mark_as_read(token, message_id):
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-    url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}"
-    requests.patch(url, headers=headers, json={"isRead": True}, timeout=30)
-
-def create_reply_draft(token, message_id, draft_body):
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-    url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{message_id}/createReply"
-    r = requests.post(url, headers=headers, json={}, timeout=30)
-    r.raise_for_status()
-    draft_id = r.json()["id"]
-    body_html = draft_body.replace("\n", "<br>\n")
-    patch_url = f"{GRAPH_BASE}/users/{USER_EMAIL}/messages/{draft_id}"
-    r2 = requests.patch(
-        patch_url,
-        headers=headers,
-        json={
-            "body": {
-                "contentType": "HTML",
-                "content": f"<p style='font-family:Calibri,sans-serif;font-size:11pt'>{body_html}</p>",
-            }
-        },
-        timeout=30,
-    )
-    r2.raise_for_status()
-    return draft_id
 
 def main():
     print("Grapes & Barrels - Email Triage gestart")
@@ -247,21 +410,29 @@ def main():
     print(f"{len(folder_map)} mappen gevonden")
 
     for folder_name in FOLDERS:
-        if folder_name not in ("Postvak IN",):
+        if folder_name != "Postvak IN":
             ensure_folder_exists(token, folder_map, folder_name)
+
+    history = load_history()
+    check_for_corrections(token, history, folder_map)
+    domain_stats = build_domain_stats(history["records"])
+    learned_examples_text = build_learned_examples_text(history["records"])
 
     inbox_id = folder_map.get("Postvak IN")
     if not inbox_id:
         print("Postvak IN niet gevonden")
+        save_history(history)
         return
 
     emails = get_inbox_emails(token, inbox_id)
     print(f"{len(emails)} emails in inbox")
     if not emails:
+        save_history(history)
         return
 
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
-    moved = skipped = drafted = quick = 0
+    moved = skipped = quick = learned = needs_reply_count = 0
+    needs_reply_list = []
 
     for email in emails:
         subject = email.get("subject", "(geen onderwerp)")
@@ -274,25 +445,33 @@ def main():
             body_text = strip_html(body_content)
         else:
             body_text = body_content
-
         if not body_text.strip():
             body_text = email.get("bodyPreview", "")
 
+        target = None
+        source = None
+
         quick_folder = quick_classify(sender, subject)
         if quick_folder:
-            dest_id = folder_map.get(quick_folder)
-            if dest_id:
-                try:
-                    new_id = move_email(token, email["id"], dest_id)
-                    print(f" [snel] -> {quick_folder}: {subject[:60]}")
-                    quick += 1
-                    moved += 1
-                except Exception as e:
-                    print(f" Fout snel filter '{subject[:40]}': {e}")
-                    skipped += 1
-            continue
+            target, source = quick_folder, "quick"
+        else:
+            learned_folder = learned_classify(domain_stats, sender)
+            if learned_folder:
+                target, source = learned_folder, "learned"
 
-        target, needs_reply, draft_reply = analyze_email(client, sender, subject, body_text)
+        needs_reply = False
+        if target is None:
+            target, needs_reply = analyze_email(client, sender, subject, body_text, learned_examples_text)
+            source = "llm"
+
+        if source == "quick":
+            quick += 1
+        elif source == "learned":
+            learned += 1
+
+        if needs_reply:
+            needs_reply_count += 1
+            needs_reply_list.append(f"{subject[:60]} (van {sender})")
 
         new_message_id = email["id"]
         if target != "Postvak IN":
@@ -300,26 +479,30 @@ def main():
             if dest_id:
                 try:
                     new_message_id = move_email(token, email["id"], dest_id)
-                    print(f" -> {target}: {subject[:60]}")
+                    print(f" [{source}] -> {target}: {subject[:60]}")
                     moved += 1
                 except Exception as e:
                     print(f" Fout verplaatsen '{subject[:40]}': {e}")
                     skipped += 1
+                    continue
             else:
                 print(f" Map '{target}' niet gevonden, overgeslagen")
                 skipped += 1
+                continue
         else:
             skipped += 1
 
-        if needs_reply and draft_reply and not email.get("isRead", True):
-            try:
-                create_reply_draft(token, new_message_id, draft_reply)
-                print(f"   [concept reply] {subject[:50]}")
-                drafted += 1
-            except Exception as e:
-                print(f"   Fout concept reply '{subject[:40]}': {e}")
+        record_classification(history, new_message_id, sender, subject, target, source)
 
-    print(f"\nKlaar: {moved} verplaatst ({quick} snel), {drafted} concept replies, {skipped} overgeslagen")
+    save_history(history)
+
+    print(f"\nKlaar: {moved} verplaatst ({quick} snel, {learned} geleerd), "
+          f"{skipped} in Postvak IN gelaten")
+    if needs_reply_list:
+        print(f"\n{needs_reply_count} mail(s) lijken een antwoord nodig te hebben (geen concept aangemaakt):")
+        for item in needs_reply_list:
+            print(f"  - {item}")
+
 
 if __name__ == "__main__":
     main()
