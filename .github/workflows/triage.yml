@@ -5,6 +5,9 @@ on:
     - cron: "0 5,7,9,11,13,15,18 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   triage:
     runs-on: ubuntu-latest
@@ -30,3 +33,15 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           USER_EMAIL:        ${{ secrets.USER_EMAIL }}
         run: python email_triage.py
+
+      - name: Leerdata committen
+        run: |
+          git config user.name "email-triage-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add triage_history.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update leerdata triage_history.json [skip ci]"
+            git push
+          else
+            echo "Geen wijzigingen in leerdata"
+          fi
