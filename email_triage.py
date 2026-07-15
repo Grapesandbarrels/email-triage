@@ -77,8 +77,25 @@ QUICK_DOMAIN_MAP = {
     "intuitemailservice.com": "Finance",
 }
 
-# Afzender local-part patronen die vrijwel altijd pure ruis zijn (mits domein
-# hierboven niet al iets specifieks toekende)
+# Onderwerp-keywords die ALTIJD naar een specifieke map gaan, ook als de mail
+# automatisch/systeem-gegenereerd is (bv. een factuur-noreply-mail is nog
+# steeds Finance, geen Ruis; een bezorgmelding is nog steeds Logistiek).
+FINANCE_SUBJECT_KEYWORDS = [
+    "factuur", "invoice", "betaling", "betaalherinnering", "aanmaning",
+    "creditnota", "credit note", "rekening", "mollie", "incasso",
+    "betaalverzoek", "openstaand bedrag",
+]
+
+LOGISTIEK_SUBJECT_KEYWORDS = [
+    "voor de deur", "bezorging", "bezorgd", "wordt bezorgd", "pakket",
+    "zending", "verzending", "verzonden", "track & trace", "track and trace",
+    "trackandtrace", "zendingsstatus", "dhl", "postnl", "gls", "dpd", "fedex",
+    "ups ", "douane", "customs", "aflevering", "afleveren",
+]
+
+# Afzender local-part patronen die vrijwel altijd pure ruis zijn. Dit is de
+# LAAGSTE prioriteit -- een "noreply@" afzender kan best een factuur- of
+# bezorgmelding sturen, dus de specifieke keyword-checks hierboven gaan voor.
 RUIS_SENDER_PATTERNS = [
     "noreply", "no-reply", "donotreply", "do-not-reply",
     "notifications@", "postmaster", "mailer@",
@@ -103,14 +120,20 @@ def quick_classify(sender: str, subject: str) -> str | None:
     for domain, folder in QUICK_DOMAIN_MAP.items():
         if domain in s:
             return folder
-    for pattern in RUIS_SENDER_PATTERNS:
-        if pattern in s:
-            return "Ruis"
+    for kw in FINANCE_SUBJECT_KEYWORDS:
+        if kw in sub:
+            return "Finance"
+    for kw in LOGISTIEK_SUBJECT_KEYWORDS:
+        if kw in sub:
+            return "Logistiek"
     for kw in MARKETING_SUBJECT_KEYWORDS:
         if kw in sub:
             return "Marketing & Tools"
     for kw in RUIS_SUBJECT_KEYWORDS:
         if kw in sub:
+            return "Ruis"
+    for pattern in RUIS_SENDER_PATTERNS:
+        if pattern in s:
             return "Ruis"
     return None
 
@@ -256,8 +279,11 @@ Analyseer de email hieronder en geef een JSON-antwoord.
 Mappen:
 - Producenten: emails van wijnproducenten, bodegas, wijnmakers, leveranciers
 - Klanten & Bestellingen: orders, klantenvragen, webshop-orders, leveringsverzoeken
-- Logistiek: verzending, douane, transport, DHL, PostNL
-- Finance: facturen, betalingen, Mollie, banken, creditnota's
+- Logistiek: verzending, douane, transport, DHL, PostNL, track&trace-mails,
+  "staat voor de deur"-meldingen -- OOK als het een automatische systeemmail is
+- Finance: facturen, betalingen, Mollie, banken, creditnota's, betalingsherinneringen
+  -- OOK als het een automatische factuur- of betalingsbevestiging is zonder dat
+  Floris iets hoeft te doen. Een factuur is NOOIT Ruis.
 - Marketing & Tools: nieuwsbrieven, aanbiedingen, en automatische meldingen van
   software/tools die Floris gebruikt (Shopify, Google, social media, mailinglijsten) --
   niet urgent, maar wel relevant genoeg om af en toe te scannen
@@ -265,12 +291,17 @@ Mappen:
   LinkedIn-berichten van mensen (geen automatische meldingen)
 - Juridisch: contracten, voorwaarden, verzekeringen, juridische correspondentie
 - Ruis: pure spam, phishing, volstrekt irrelevante automatische mail zonder enige
-  business-waarde
+  business-waarde. Gebruik dit NOOIT voor facturen, betalingen, verzend- of
+  bezorgmeldingen -- die horen altijd bij Finance/Logistiek, ook zonder actie.
 - Postvak IN: alleen echte persoonlijke berichten die nergens anders bij passen
 
+Belangrijk: "geen actie nodig" betekent NIET automatisch Ruis. Een factuur,
+betalingsbevestiging of pakketmelding zonder actie hoort nog steeds bij de
+inhoudelijke map (Finance/Logistiek/etc.), niet bij Ruis.
 Bij twijfel tussen een specifieke map en Ruis: kies de specifieke map, niet Ruis.
 Bij twijfel tussen Postvak IN en Ruis: kies Postvak IN.
-Gebruik Ruis alleen als je vrij zeker bent dat het geen enkele waarde heeft.
+Gebruik Ruis alleen voor mail zonder enige inhoudelijke of administratieve waarde
+(marketing, social media, spam, algemene productupdates van tools).
 
 {learned_examples}
 
