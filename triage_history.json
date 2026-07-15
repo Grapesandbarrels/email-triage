@@ -98,6 +98,24 @@
       "source": "llm",
       "ts": "2026-07-15T10:26:55.340095+00:00",
       "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq76AAA=",
+      "sender_domain": "lc2d.com",
+      "subject": "Re: Wines for Flink",
+      "folder": "Producenten",
+      "source": "llm",
+      "ts": "2026-07-15T10:57:32.195774+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "maarten",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T10:57:33.227066+00:00",
+      "checked": false
     }
   ]
 }
