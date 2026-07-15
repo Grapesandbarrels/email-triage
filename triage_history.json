@@ -106,7 +106,7 @@
       "folder": "Producenten",
       "source": "llm",
       "ts": "2026-07-15T10:57:32.195774+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
@@ -115,7 +115,7 @@
       "folder": "Postvak IN",
       "source": "llm",
       "ts": "2026-07-15T10:57:33.227066+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq77AAA=",
@@ -124,7 +124,7 @@
       "folder": "Producenten",
       "source": "llm",
       "ts": "2026-07-15T12:21:20.272078+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXodAADi7qG9cSyhQ6ZgTlpprIHAAAFzhrLnAAA=",
@@ -133,7 +133,7 @@
       "folder": "Logistiek",
       "source": "quick",
       "ts": "2026-07-15T12:21:20.511447+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4QAAA=",
@@ -142,7 +142,7 @@
       "folder": "Klanten & Bestellingen",
       "source": "llm",
       "ts": "2026-07-15T12:21:21.568693+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
@@ -151,7 +151,7 @@
       "folder": "Postvak IN",
       "source": "llm",
       "ts": "2026-07-15T12:21:22.221906+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq78AAA=",
@@ -241,6 +241,42 @@
       "folder": "Postvak IN",
       "source": "llm",
       "ts": "2026-07-15T16:41:03.041395+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4TAAA=",
+      "sender_domain": "hotmail.com",
+      "subject": "Re: Chasse Spleen",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-15T19:23:43.883846+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq8AAAA=",
+      "sender_domain": "rcedro.com",
+      "subject": "RE: Aleixo Wines since 1951",
+      "folder": "Producenten",
+      "source": "llm",
+      "ts": "2026-07-15T19:23:44.804095+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgn0AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Uitschrijving KvK",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T19:23:45.488948+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "maarten",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T19:23:46.061153+00:00",
       "checked": false
     }
   ]
