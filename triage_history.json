@@ -1,0 +1,76 @@
+{
+  "records": [
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAFzhfZAAAA=",
+      "sender_domain": "anco-vastgoed.nl",
+      "subject": "Factuur 26700106 van Westeinder o.g. B.V.",
+      "folder": "Ruis",
+      "source": "llm",
+      "ts": "2026-07-15T10:16:49.054810+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAFzhfZBAAA=",
+      "sender_domain": "email.rabobank.nl",
+      "subject": "Bedrijfspand kopen of verbouwen?",
+      "folder": "Ruis",
+      "source": "quick",
+      "ts": "2026-07-15T10:16:49.449594+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "maarten",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T10:16:50.424626+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq75AAA=",
+      "sender_domain": "lc2d.com",
+      "subject": "Re: Wines for Flink",
+      "folder": "Producenten",
+      "source": "llm",
+      "ts": "2026-07-15T10:16:51.626712+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFzhl8MAADi7qG9cSyhQ6ZgTlpprIHAAAFzh1m4AAA=",
+      "sender_domain": "email.shopify.com",
+      "subject": "Smart Pricing: deze zomer werkt je prijsstelling in je voordeel",
+      "folder": "Marketing & Tools",
+      "source": "quick",
+      "ts": "2026-07-15T10:16:52.047467+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFzhl8NAADi7qG9cSyhQ6ZgTlpprIHAAAFzh12hAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Sailing Ships & Grapes and Barrels",
+      "folder": "Evenementen & Netwerk",
+      "source": "llm",
+      "ts": "2026-07-15T10:16:53.384359+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAFzhfZCAAA=",
+      "sender_domain": "dhlecommerce.nl",
+      "subject": "We staan vandaag voor de deur tussen 11.30 - 15.30 uur (3SDGT567701601)",
+      "folder": "Ruis",
+      "source": "quick",
+      "ts": "2026-07-15T10:16:53.757438+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4NAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Chasse Spleen",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-15T10:16:55.532817+00:00",
+      "checked": false
+    }
+  ]
+}
