@@ -116,6 +116,42 @@
       "source": "llm",
       "ts": "2026-07-15T10:57:33.227066+00:00",
       "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAFzhq77AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Fw: Aleixo Wines since 1951",
+      "folder": "Producenten",
+      "source": "llm",
+      "ts": "2026-07-15T12:21:20.272078+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXodAADi7qG9cSyhQ6ZgTlpprIHAAAFzhrLnAAA=",
+      "sender_domain": "dhlecommerce.nl",
+      "subject": "Je pakket is bezorgd (3SDGT567701601)",
+      "folder": "Logistiek",
+      "source": "quick",
+      "ts": "2026-07-15T12:21:20.511447+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4QAAA=",
+      "sender_domain": "verosvini.nl",
+      "subject": "Re: Extra opties",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-15T12:21:21.568693+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "maarten",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T12:21:22.221906+00:00",
+      "checked": false
     }
   ]
 }
