@@ -71,6 +71,33 @@
       "source": "llm",
       "ts": "2026-07-15T10:16:55.532817+00:00",
       "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4OAAA=",
+      "sender_domain": "gmail.com",
+      "subject": "Re: Bestelling #2428 bevestigd",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-15T10:26:53.512978+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAFzhf4PAAA=",
+      "sender_domain": "gmail.com",
+      "subject": "Re: Bestelling #2428 bevestigd",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-15T10:26:54.723496+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgnpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "maarten",
+      "folder": "Postvak IN",
+      "source": "llm",
+      "ts": "2026-07-15T10:26:55.340095+00:00",
+      "checked": false
     }
   ]
 }
