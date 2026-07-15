@@ -39,6 +39,7 @@ FOLDERS = {
     "Klanten & Bestellingen": "Klanten & Bestellingen",
     "Logistiek": "Logistiek",
     "Finance": "Finance",
+    "Betalingsherinneringen": "Betalingsherinneringen",
     "Marketing & Tools": "Marketing & Tools",
     "Evenementen & Netwerk": "Evenementen & Netwerk",
     "Juridisch": "Juridisch",
@@ -53,6 +54,10 @@ FOLDERS = {
 # Afzenderdomein (substring match) -> vaste map. Dit zijn bekende automatische
 # afzenders die business-relevant zijn maar geen persoonlijke actie vereisen.
 QUICK_DOMAIN_MAP = {
+    # Automatische betalingsherinneringen die Grapes & Barrels zelf verstuurt
+    # via een Shopify-reminder-app (softify.co) -- geen actie nodig, maar Floris
+    # wil kunnen meekijken of ze goed verzoend worden.
+    "softify.co": "Betalingsherinneringen",
     "shopify.com": "Marketing & Tools",
     "mail.shopify.com": "Marketing & Tools",
     "syncwith.com": "Marketing & Tools",
@@ -281,9 +286,13 @@ Mappen:
 - Klanten & Bestellingen: orders, klantenvragen, webshop-orders, leveringsverzoeken
 - Logistiek: verzending, douane, transport, DHL, PostNL, track&trace-mails,
   "staat voor de deur"-meldingen -- OOK als het een automatische systeemmail is
-- Finance: facturen, betalingen, Mollie, banken, creditnota's, betalingsherinneringen
+- Finance: facturen, betalingen, Mollie, banken, creditnota's van/aan derden
   -- OOK als het een automatische factuur- of betalingsbevestiging is zonder dat
   Floris iets hoeft te doen. Een factuur is NOOIT Ruis.
+- Betalingsherinneringen: automatische betalingsherinneringen die Grapes & Barrels
+  ZELF verstuurt naar klanten via een reminder-app (afzender lijkt op "Grapes &
+  Barrels" maar komt van een app-domein zoals softify.co) -- Floris houdt deze bij
+  om te zien of openstaande facturen goed verzoend worden, geen actie nodig
 - Marketing & Tools: nieuwsbrieven, aanbiedingen, en automatische meldingen van
   software/tools die Floris gebruikt (Shopify, Google, social media, mailinglijsten) --
   niet urgent, maar wel relevant genoeg om af en toe te scannen
