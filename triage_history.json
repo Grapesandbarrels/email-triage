@@ -2438,6 +2438,105 @@
       "source": "learned",
       "ts": "2026-07-21T07:37:35.450058+00:00",
       "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF4DrF5AAA=",
+      "sender_domain": "hillebrandgori.com",
+      "subject": "Invoice Original; Our Ref: 7412608880[jobNLR35679115]",
+      "folder": "Finance",
+      "source": "quick",
+      "ts": "2026-07-21T11:13:26.068613+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXodAADi7qG9cSyhQ6ZgTlpprIHAAAF4DrViAAA=",
+      "sender_domain": "hillebrandgori.com",
+      "subject": "RE: Levering Flink",
+      "folder": "Logistiek",
+      "source": "llm",
+      "ts": "2026-07-21T11:13:27.314610+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAF4DrlLAAA=",
+      "sender_domain": "deloitte.nl",
+      "subject": "test",
+      "folder": "Ruis",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.593624+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF2ud3jAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: brandweervereniging",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.595804+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgokAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "eyecare",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.596002+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoPAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Fw: brandweervereniging",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.596829+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoJAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: brandweervereniging",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.597364+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoGAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Kennismaken en proeven 4 maart",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.599191+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoBAAA=",
+      "sender_domain": "wijnhuisheemstede.nl",
+      "subject": "Re: Voorstel",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.600205+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgn7AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "RE: Grapes & Barrels wijnimport x Sailing Ships",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.604738+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgn0AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Uitschrijving KvK",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-21T11:13:27.605283+00:00",
+      "checked": false
     }
   ]
 }
