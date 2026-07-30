@@ -1,276 +1,6 @@
 {
   "records": [
     {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAF5EVCjAAA=",
-      "sender_domain": "mail.crusetdomainesdefrance.com",
-      "subject": "Crus et Domaines de France - Tarif Primeur 2025 / Pricelist En Primeur 2025",
-      "folder": "Producenten",
-      "source": "llm",
-      "ts": "2026-07-24T19:40:45.856895+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREAAAA=",
-      "sender_domain": "reesvellinga.nl",
-      "subject": "Ean",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.856939+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD-AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: Chateau Batailley 2025 News",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.872094+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD_AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: Chateau Batailley 2025 News",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.886651+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD9AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Fw: Chateau Batailley 2025 News",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.901054+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD6AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Fwd: Doe mee aan het Forten- en Vestingfestival 2026!",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.902840+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD3AAA=",
-      "sender_domain": "reesvellinga.nl",
-      "subject": "Chablis",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.902999+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDxAAA=",
-      "sender_domain": "reesvellinga.nl",
-      "subject": "Fotos",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.903244+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDwAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: BTW Q3",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.904649+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDsAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: BTW Q3",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.905557+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDpAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: Nieuwe nissenhuurder",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.906282+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDnAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "factureren",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.907372+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF2ud3jAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: brandweervereniging",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.909228+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgokAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "eyecare",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.909409+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoPAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Fw: brandweervereniging",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.910235+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoJAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: brandweervereniging",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.910760+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoGAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: Kennismaken en proeven 4 maart",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.912566+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgoBAAA=",
-      "sender_domain": "wijnhuisheemstede.nl",
-      "subject": "Re: Voorstel",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.913592+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgn7AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "RE: Grapes & Barrels wijnimport x Sailing Ships",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.918088+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAFzhgn0AAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Uitschrijving KvK",
-      "folder": "Postvak IN",
-      "source": "learned",
-      "ts": "2026-07-24T19:40:45.918634+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREjAAA=",
-      "sender_domain": "cappa-accountants.nl",
-      "subject": "vraagposten en openstaande crediteuren",
-      "folder": "Postvak IN",
-      "source": "llm",
-      "ts": "2026-07-25T07:23:26.770889+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAF5EVCkAAA=",
-      "sender_domain": "branaire.com",
-      "subject": "Re: Order G&B",
-      "folder": "Producenten",
-      "source": "learned",
-      "ts": "2026-07-25T07:23:27.046632+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOfAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: en deze factuur",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:27.261742+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOgAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "Re: factuur beat goos",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:27.469268+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOhAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "en deze factuur",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:27.672685+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOiAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "en deze factuur",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:27.974012+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOjAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "factuur beat goos",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:28.181723+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOkAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "factuur krems",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:28.408967+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOlAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "factuur fort",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:28.753372+00:00",
-      "checked": true
-    },
-    {
-      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOmAAA=",
-      "sender_domain": "grapesandbarrels.nl",
-      "subject": "factuur niederosterreich",
-      "folder": "Finance",
-      "source": "quick",
-      "ts": "2026-07-25T07:23:28.972601+00:00",
-      "checked": true
-    },
-    {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF5EhOnAAA=",
       "sender_domain": "grapesandbarrels.nl",
       "subject": "factuur lichtle",
@@ -6667,7 +6397,7 @@
       "folder": "Marketing & Tools",
       "source": "quick",
       "ts": "2026-07-30T07:38:28.137063+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXobAADi7qG9cSyhQ6ZgTlpprIHAAAF9ihjbAAA=",
@@ -6676,7 +6406,7 @@
       "folder": "Producenten",
       "source": "llm",
       "ts": "2026-07-30T07:38:29.368637+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDcAAA=",
@@ -6685,7 +6415,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.369537+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDSAAA=",
@@ -6694,7 +6424,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.370398+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDNAAA=",
@@ -6703,7 +6433,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.371819+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF72Y5yAAA=",
@@ -6712,7 +6442,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.372314+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7XWoOAAA=",
@@ -6721,7 +6451,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.372467+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7LcwkAAA=",
@@ -6730,7 +6460,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.372605+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7JvaPAAA=",
@@ -6739,7 +6469,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.372737+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7JvaNAAA=",
@@ -6748,7 +6478,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.374681+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREjAAA=",
@@ -6757,7 +6487,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.374995+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREYAAA=",
@@ -6766,7 +6496,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.375195+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREWAAA=",
@@ -6775,7 +6505,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.375345+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERERAAA=",
@@ -6784,7 +6514,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.375494+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREQAAA=",
@@ -6793,7 +6523,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.375636+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREPAAA=",
@@ -6802,7 +6532,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.375777+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREOAAA=",
@@ -6811,7 +6541,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.376100+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERENAAA=",
@@ -6820,7 +6550,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.377995+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREAAAA=",
@@ -6829,7 +6559,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.378009+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD-AAA=",
@@ -6838,7 +6568,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.394156+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD_AAA=",
@@ -6847,7 +6577,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.410418+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD9AAA=",
@@ -6856,7 +6586,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.426181+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD6AAA=",
@@ -6865,7 +6595,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.428163+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD3AAA=",
@@ -6874,7 +6604,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.428330+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDxAAA=",
@@ -6883,7 +6613,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.428598+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDwAAA=",
@@ -6892,7 +6622,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.430153+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDsAAA=",
@@ -6901,7 +6631,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.431164+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDpAAA=",
@@ -6910,7 +6640,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.431959+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDnAAA=",
@@ -6919,7 +6649,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.433200+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF2ud3jAAA=",
@@ -6928,7 +6658,7 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T07:38:29.435245+00:00",
-      "checked": false
+      "checked": true
     },
     {
       "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAF9ifWQAAA=",
@@ -7198,6 +6928,276 @@
       "folder": "Postvak IN",
       "source": "learned",
       "ts": "2026-07-30T11:15:58.948671+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXo5AADi7qG9cSyhQ6ZgTlpprIHAAAF_rMl8AAA=",
+      "sender_domain": "booking.com",
+      "subject": "JJ, je hebt een beloning verdiend!",
+      "folder": "Ruis",
+      "source": "llm",
+      "ts": "2026-07-30T15:17:56.400625+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXoeAADi7qG9cSyhQ6ZgTlpprIHAAAF_rNFNAAA=",
+      "sender_domain": "moulindelarose.com",
+      "subject": "Facture Réservation primeurs 2025",
+      "folder": "Finance",
+      "source": "llm",
+      "ts": "2026-07-30T15:17:57.498954+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAFmoXocAADi7qG9cSyhQ6ZgTlpprIHAAAF_rNU2AAA=",
+      "sender_domain": "gmail.com",
+      "subject": "Re: brandweervereniging",
+      "folder": "Klanten & Bestellingen",
+      "source": "llm",
+      "ts": "2026-07-30T15:17:58.947715+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF9ibMKAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "SHOPIFY-EINDCHECK-TODO.md",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.948159+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDcAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "To-do's shopify-claude",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.948868+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDSAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Claude shopify",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.949762+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF75kDNAAA=",
+      "sender_domain": "cappa-accountants.nl",
+      "subject": "RE: btw Q2 2026 Vinocerf",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.951212+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF72Y5yAAA=",
+      "sender_domain": "cappa-accountants.nl",
+      "subject": "btw Q2 2026 Vinocerf",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.951694+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7XWoOAAA=",
+      "sender_domain": "cappa-accountants.nl",
+      "subject": "eerste halfjaar 2026",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.951879+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7LcwkAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Voirin",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.952022+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7JvaPAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Pierre fil",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.952160+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF7JvaNAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Afsluiting Jun-26",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.954145+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREjAAA=",
+      "sender_domain": "cappa-accountants.nl",
+      "subject": "vraagposten en openstaande crediteuren",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.954449+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREYAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Pierre Fil facturen",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.954652+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREWAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "vins de crus",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.954825+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERERAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Bekijk recente foto's",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.954980+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREQAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Foto picque",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.955127+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREPAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Fotos",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.955272+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREOAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Fotos",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.955578+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERENAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: En primeur",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.957445+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5EREAAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Ean",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.957459+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD-AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Chateau Batailley 2025 News",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.973962+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD_AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Chateau Batailley 2025 News",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:58.990258+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD9AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Fw: Chateau Batailley 2025 News",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.006220+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD6AAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Fwd: Doe mee aan het Forten- en Vestingfestival 2026!",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.008252+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERD3AAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Chablis",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.008420+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDxAAA=",
+      "sender_domain": "reesvellinga.nl",
+      "subject": "Fotos",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.008683+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDwAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: BTW Q3",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.010235+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDsAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: BTW Q3",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.011263+00:00",
+      "checked": false
+    },
+    {
+      "id": "AAMkAGVkZWMzYTM3LTczMzQtNDMyZC04ZGQ3LWRhZDhjZTEwMWViZQBGAAAAAABUioB3gsoqRYGcath4BpDyBwDi7qG9cSyhQ6ZgTlpprIHAAAAAAAEMAADi7qG9cSyhQ6ZgTlpprIHAAAF5ERDpAAA=",
+      "sender_domain": "grapesandbarrels.nl",
+      "subject": "Re: Nieuwe nissenhuurder",
+      "folder": "Postvak IN",
+      "source": "learned",
+      "ts": "2026-07-30T15:17:59.012085+00:00",
       "checked": false
     }
   ]
